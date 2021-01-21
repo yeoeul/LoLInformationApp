@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout leagueScheduleLayout;
     LinearLayout leagueRankingLayout;
     ArrayList<Button> weekButton = new ArrayList<Button>();
+    TextView test;
     ArrayList<TextView> rank = new ArrayList<TextView>();
     ArrayList<ImageView> teamLogo = new ArrayList<ImageView>();
     ArrayList<TextView> teamName = new ArrayList<TextView>();
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         initView();
-
+        test = this.findViewById(R.id.weekFirstMatch);
         leagueRankingLayout = this.findViewById(R.id.leagueRankingLayout);
         leagueScheduleLayout = this.findViewById(R.id.leagueScheduleLayout);
         //leagueScheduleLayout.setVisibility(View.GONE);
@@ -72,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
+        new Thread(new Runnable(){
+            public void run(){
+                Elements elements = bringWeekMatch();
+                String str[] = elements.text().split(" ");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(int i = 0; i < str.length; i++) test.setText(test.getText().toString() + str[i]);
+                    }
+                });
+            }
+        }).start();
+
         new Thread() {
             public void run(){
                 bringRankingData();
@@ -82,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
         for(int i = 1; i <= 10; i++){
             String array = "week" + i + "Button";
             int resID = getResources().getIdentifier(array, "id", getPackageName());
@@ -106,6 +121,17 @@ public class MainActivity extends AppCompatActivity {
         try{
             Document doc = Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFE&pkid=475&os=17568053&query=2021%20LoL%20%EC%B1%94%ED%94%BC%EC%96%B8%EC%8A%A4%20%EC%BD%94%EB%A6%AC%EC%95%84%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%A6%AC%EA%B7%B8%EC%9D%BC%EC%A0%95").get();
             elements = doc.select(".this_text");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return elements;
+    }
+
+    private Elements bringWeekMatch(){
+        Elements elements= null;
+        try{
+            Document doc = Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFE&pkid=475&os=17568053&query=2021%20LoL%20%EC%B1%94%ED%94%BC%EC%96%B8%EC%8A%A4%20%EC%BD%94%EB%A6%AC%EC%95%84%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%A6%AC%EA%B7%B8%EC%9D%BC%EC%A0%95").get();
+            elements = doc.select(".area_card li._tab.state_focus");
         } catch (IOException e) {
             e.printStackTrace();
         }

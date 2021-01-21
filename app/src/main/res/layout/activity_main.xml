@@ -46,7 +46,7 @@
     <LinearLayout
         android:id="@+id/leagueScheduleLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <HorizontalScrollView
@@ -60,67 +60,94 @@
 
                 <Button
                     android:id="@+id/week1Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week2Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week3Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week4Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week5Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week6Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week7Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week8Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week9Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
+
                 <Button
                     android:id="@+id/week10Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="82sp"
                     android:layout_height="wrap_content"
                     android:textColor="#888888"
+                    android:textSize="12sp"
                     app:backgroundTint="#FFFFFF" />
 
             </LinearLayout>
         </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/weekFirstMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.13"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout
